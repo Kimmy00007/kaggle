@@ -13,21 +13,21 @@ import pandas as pd
 from sklearn.linear_model import Ridge
 import os.path
 
-data_dir = '/opt/data/kaggle/getting-started/house-prices'
+data_dir = '/data/git/kaggle/datasets/competitions/getting-started/house-price/'
 
 
 # 加载数据
 def opencsv():
     # 使用 pandas 打开
-    df_train = pd.read_csv(os.path.join(data_dir, 'train.csv'))
-    df_test = pd.read_csv(os.path.join(data_dir, 'test.csv'))
+    df_train = pd.read_csv(os.path.join(data_dir, 'input/train.csv'))
+    df_test = pd.read_csv(os.path.join(data_dir, 'input/test.csv'))
 
     return df_train, df_test
 
 
 def saveResult(result):
     result.to_csv(
-        os.path.join(data_dir, "submission.csv"), sep=',', encoding='utf-8')
+        os.path.join(data_dir, "output/submission.csv"), sep=',', encoding='utf-8')
 
 
 def ridgeRegression(trainData, trainLabel, df_test):
